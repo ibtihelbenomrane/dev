@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+     
+
+
+     
+
+    <form name="formEtudiant">
+        <label>Nom:</label>
+        <input type="text" id="nomtext" /><br>
+
+        <label>Prenom:</label>
+        <input type="text" id="prenontext" /><br>
+
+        <label>Email:</label>
+        <input type="text" id="email" /><br>
+
+        <label>Age:</label>
+        <input type="text" id="Age" /><br>
+
+        <input type="button" value="Ajouter" onclick="AjouterNouveauEtudiant()" />
+    </form>
+
+    <h1>Liste des étudiants</h1>
+    <table >
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+            <body id="tableaudesEtudiants"></body>
+        </thead>
+    </table>
+
+    <script>
+        function AjouterNouveauEtudiant() {
+
+            Etudiant = document.forms["formEtudiant"];
+             Ligne = document.createElement("tr");
+            for (i = 0; i < Etudiant.length; i++)
+                Ligne.innerHTML += "<td>" + Etudiant[i].value + "</td>";
+            tabEtudiants = document.getElementById("tableaudesEtudiants");
+
+            tableaudesEtudiants.appendChild(Ligne);
+        }
+    
+
+    </script>
+
+
+   
+</body>
+
+</html>
