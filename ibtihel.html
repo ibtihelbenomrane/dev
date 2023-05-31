@@ -1,0 +1,49 @@
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf8" />
+      </head>
+    
+      <body>
+        <input
+          type="button"
+          value="executer"
+          onclick="ajouterlistetudiant()"
+          />
+    
+        <h1>Liste des étudiants</h1>
+        <table>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Age</th>
+            </tr>
+          <body id="tableauEtudiants"></body>
+        </table>
+    
+        <script>
+           xhttp = new XMLHttpRequest();
+          xhttp.onload = function () {
+            objet = JSON.parse(this.responseText);
+            objet.map(ajouterEtudiant);
+          }
+    
+          tableauEtudiants = document.getElementById("tableauEtudiants");
+    
+          function ajouterlistetudiant() {
+            xhttp.open("GET", "listEtudiants.json");
+            xhttp.send();
+          }
+    
+          function ajouterEtudiant(etudiant) {
+             ligne = document.createElement("tr");
+             ligne.innerHTML ="<td>" +etudiant.Nom +"</td><td>" +etudiant.Prenom +"</td><td>" +etudiant.Age +"<td>"
+                tableauEtudiants.appendChild(ligne);
+          }
+        </script>
+      </body>
+    </html>
+    
+    
+            
